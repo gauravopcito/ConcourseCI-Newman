@@ -4,12 +4,14 @@ resources:
   type: git
   source:
     uri: https://github.com/gauravopcito/ConcourseCI-Newman.git
+    branch: master
   
 jobs:
 - name: test-rest-api
   public: true
   plan:
   - get: newman-repo
+    trigger: true
   - task: test-api
     file: newman-repo/newman/newman-task.yml
-    params: { "ENVIRONMENT_URL": "newman-repo/newman//test-environment.json", "COLLECTION_URL": "newman-repo/newman/test-collection.json" }
+    params: { "ENVIRONMENT_URL": "newman-repo/newman/test-environment.json", "COLLECTION_URL": "newman-repo/newman/test-collection.json" }
