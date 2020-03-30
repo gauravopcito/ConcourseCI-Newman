@@ -2,8 +2,8 @@
 resources:
 - name: newman-repo
   type: git
-  source: https://github.com/gauravopcito/ConcourseCI-Newman.git
-    uri:
+  source:
+    uri: https://github.com/gauravopcito/ConcourseCI-Newman.git
   
 jobs:
 - name: test-rest-api
@@ -12,4 +12,4 @@ jobs:
   - get: newman-repo
   - task: test-api
     file: newman-repo/newman/newman-task.yml
-    params: { "ENVIRONMENT_URL": "https://github.com/gauravopcito/ConcourseCI-Newman/blob/master/newman/test-environment.json", "COLLECTION_URL": "https://github.com/gauravopcito/ConcourseCI-Newman/blob/master/newman/test-collection.json" }
+    params: { "ENVIRONMENT_URL": "newman-repo/newman//test-environment.json", "COLLECTION_URL": "newman-repo/newman/test-collection.json" }
