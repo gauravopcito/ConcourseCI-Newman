@@ -1,0 +1,15 @@
+---
+resources:
+- name: newman-repo
+  type: git
+  source:
+    uri:
+  
+jobs:
+- name: test-rest-api
+  public: true
+  plan:
+  - get: newman-repo
+  - task: test-api
+    file: newman-repo/newman/newman-task.yml
+    params: { "ENVIRONMENT_URL": "", "COLLECTION_URL": "" }
