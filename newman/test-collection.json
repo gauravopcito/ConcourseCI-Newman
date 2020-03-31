@@ -1,8 +1,8 @@
 {
 	"variables": [],
 	"info": {
-		"name": "flaskapp",
-		"_postman_id": "35231351-77dc-3570-a963-530cb38363a9",
+		"name": "flask-jwt-auth",
+		"_postman_id": "3d16ff07-b49d-93a0-5341-a90355230322",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -10,32 +10,51 @@
 		{
 			"name": "login",
 			"request": {
-				"url": "http://192.168.100.8:5000/",
+				"url": "http://192.168.100.8:5000/auth/login",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Basic YWRtaW46YWRtaW4=",
+						"value": "Basic Z2F1cmF2ZGFiaGFkZTI0QGdtYWlsLmNvbTpwYXNzd29yZA==",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
 						"description": ""
 					}
 				],
 				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "username",
-							"value": "admin",
-							"description": "",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "admin",
-							"description": "",
-							"type": "text"
-						}
-					]
+					"mode": "raw",
+					"raw": "{\"email\":\"gauravdabhade24@gmail.com\",\"password\":\"password\"}"
 				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "user",
+			"request": {
+				"url": "http://192.168.100.8:5000/auth/status",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODU3NDYwMjgsImlhdCI6MTU4NTY1OTYyOCwic3ViIjoxfQ._jEubHQUwnmHnh7FuOic0PAriyujYzU0jQ4v4wPBj-U",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
 				"description": ""
 			},
 			"response": []

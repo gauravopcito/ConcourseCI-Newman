@@ -13,5 +13,8 @@ jobs:
   - get: newman-repo
     trigger: true
   - task: test-api
+      file: newman-repo/newman/newman-task.yml
+      params: { "ENVIRONMENT_URL": "newman-repo/newman/test-environment.json", "COLLECTION_URL": "newman-repo/newman/test-collection.json" }
+  - task: test-api
     file: newman-repo/newman/newman-task.yml
-    params: { "ENVIRONMENT_URL": "newman-repo/newman/test-environment.json", "COLLECTION_URL": "newman-repo/newman/test-collection.json" }
+    params: { "ENVIRONMENT_URL": "newman-repo/newman/test-environment.json", "GLOBAL_URL": "newman-repo/newman/test-globals.json", "COLLECTION_URL": "newman-repo/newman/test-collection.json" }
