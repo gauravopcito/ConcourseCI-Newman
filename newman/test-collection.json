@@ -14,7 +14,7 @@
 				"method": "POST",
 				"header": [
 					{
-						"key: "Authorization",
+						"key": "Authorization",
 						"value": "Basic Z2F1cmF2ZGFiaGFkZTI0QGdtYWlsLmNvbTpwYXNzd29yZA==",
 						"description": ""
 					},

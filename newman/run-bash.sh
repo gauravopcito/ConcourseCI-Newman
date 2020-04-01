@@ -6,6 +6,7 @@ echo "  Global URL: " $GLOBAL_URL
 
 apt-get update
 apt-get install jq -y
+apt-get install curl -y
 
 server=`jq '.values[1].value' $ENVIRONMENT_URL`
 ser=`echo $server | sed 's/"//g'`
