@@ -14,7 +14,7 @@
 				"method": "POST",
 				"header": [
 					{
-						"key": "Authorization",
+						"key: "Authorization",
 						"value": "Basic Z2F1cmF2ZGFiaGFkZTI0QGdtYWlsLmNvbTpwYXNzd29yZA==",
 						"description": ""
 					},
@@ -45,7 +45,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODU3NDYwMjgsImlhdCI6MTU4NTY1OTYyOCwic3ViIjoxfQ._jEubHQUwnmHnh7FuOic0PAriyujYzU0jQ4v4wPBj-U",
+						"value": "",
 						"description": ""
 					},
 					{
