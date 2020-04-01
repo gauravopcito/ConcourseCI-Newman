@@ -1,0 +1,17 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source: {repository: ubuntu}
+  
+inputs:
+- name: newman-repo
+
+outputs:
+- name: workspace
+
+run:
+  path: sh
+  args: [ "newman-repo/newman/run-bash.sh" ]
+
