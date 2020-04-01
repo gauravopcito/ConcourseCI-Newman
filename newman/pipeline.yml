@@ -12,7 +12,7 @@ jobs:
   plan:
   - get: newman-repo
     trigger: true
-  - task: test-api
+  - task: bash-task
     file: newman-repo/newman/bash-task.yml
     params: { "ENVIRONMENT_URL": "newman-repo/newman/test-environment.json", "GLOBAL_URL": "newman-repo/newman/test-globals.json", "COLLECTION_URL": "newman-repo/newman/test-collection.json" }
   - task: test-api

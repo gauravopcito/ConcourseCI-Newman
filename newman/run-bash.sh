@@ -4,6 +4,9 @@ echo "  Collection URL:  " $COLLECTION_URL
 echo "  Environment URL: " $ENVIRONMENT_URL
 echo "  Global URL: " $GLOBAL_URL
 
+apt-get update
+apt-get install jq -y
+
 server=`jq '.values[1].value' $ENVIRONMENT_URL`
 echo "Server: " $server
 port=`jq '.values[2].value' $ENVIRONMENT_URL`
