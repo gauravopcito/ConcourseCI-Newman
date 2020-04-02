@@ -5,10 +5,8 @@ echo "  Environment URL: " $ENVIRONMENT_FILE
 echo "  Global URL: " $GLOBAL_FILE
 
 apt-get update
-apt-get install python-pip
+apt-get install python-pip -y
 apt-get install jq -y
-apt-get install curl -y
-pip install locustio -y
 
 server=`jq '.values[1].value' $ENVIRONMENT_FILE`
 ser=`echo $server | sed 's/"//g'`
