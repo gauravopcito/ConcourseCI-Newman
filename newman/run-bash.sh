@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo "  Collection URL:  " $COLLECTION_URL
-echo "  Environment URL: " $ENVIRONMENT_URL
-echo "  Global URL: " $GLOBAL_URL
+echo "  Collection URL:  " $COLLECTION_FILE
+echo "  Environment URL: " $ENVIRONMENT_FILE
+echo "  Global URL: " $GLOBAL_FILE
 
 apt-get update
 apt-get install python-pip
@@ -10,10 +10,10 @@ apt-get install jq -y
 apt-get install curl -y
 pip install locustio -y
 
-server=`jq '.values[1].value' $ENVIRONMENT_URL`
+server=`jq '.values[1].value' $ENVIRONMENT_FILE`
 ser=`echo $server | sed 's/"//g'`
 echo "Server: $ser"
-port=`jq '.values[0].value' $ENVIRONMENT_URL`
+port=`jq '.values[0].value' $ENVIRONMENT_FILE`
 po=`echo $port | sed 's/"//g'`
 echo "Port: $po"
 host_url="http://$ser:$po/auth/login"
@@ -26,6 +26,6 @@ echo "Token: $token"
 #echo "login response: $basic_login_curl"
 #auth_token=echo $basic_login_curl | jq '.auth_token'
 #echo "auth_token: $auth_token"
-sed -i "s|TOKEN|$token|g" $GLOBAL_URL
+sed -i "s|TOKEN|$token|g" $GLOBAL_FILE
 
 echo "Complete!"
