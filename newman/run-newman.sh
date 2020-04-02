@@ -15,6 +15,6 @@ npm install newman --global --no-spin
 echo "New Newman Version: " `newman --version`
 
 # using the v3 syntax.
-newman run $COLLECTION_FILE -e $ENVIRONMENT_FILE --globals $GLOBAL_FILE --bail
+newman run $COLLECTION_FILE -e $ENVIRONMENT_FILE --bail
 
 echo "Complete!"
