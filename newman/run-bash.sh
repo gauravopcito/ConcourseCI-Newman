@@ -8,6 +8,7 @@ echo "  Global URL: " $APP_FILE
 apt-get update -y
 apt-get install python-pip -y
 apt-get install jq -y
+pip install requests
 
 server=`jq '.values[1].value' $ENVIRONMENT_FILE`
 ser=`echo $server | sed 's/"//g'`
@@ -21,6 +22,7 @@ echo "hosturl: $host_url"
 response=$(python $APP_FILE)
 token=`echo $response | jq ".token"`
 echo "Token: $token"
+token=`echo $token | sed 's/"//g'`
 #basic_login_curl=$(curl -w "200" -s -X POST -d '{"username":"gauravdabhade24@gmail.com","password":"password"}' $host_url)
 #echo "login response: $basic_login_curl"
 #auth_token=echo $basic_login_curl | jq '.auth_token'
