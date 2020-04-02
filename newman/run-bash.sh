@@ -3,8 +3,9 @@
 echo "  Collection URL:  " $COLLECTION_FILE
 echo "  Environment URL: " $ENVIRONMENT_FILE
 echo "  Global URL: " $GLOBAL_FILE
+echo "  Global URL: " $APP_FILE
 
-apt-get update
+apt-get update -y
 apt-get install python-pip -y
 apt-get install jq -y
 
@@ -17,7 +18,7 @@ echo "Port: $po"
 host_url="http://$ser:$po/auth/login"
 echo "hosturl: $host_url"
 
-response=$(python newman-repo/app.py 2>&1 > /dev/null)
+response=$(python $APP_FILE)
 token=`echo $response | jq ".token"`
 echo "Token: $token"
 #basic_login_curl=$(curl -w "200" -s -X POST -d '{"username":"gauravdabhade24@gmail.com","password":"password"}' $host_url)
