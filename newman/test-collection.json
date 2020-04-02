@@ -45,7 +45,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "",
+						"value": "TOKEN",
 						"description": ""
 					},
 					{

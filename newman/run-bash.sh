@@ -28,5 +28,6 @@ token=`echo $token | sed 's/"//g'`
 #auth_token=echo $basic_login_curl | jq '.auth_token'
 #echo "auth_token: $auth_token"
 sed -i "s|TOKEN|$token|g" $GLOBAL_FILE
+sed -i "s|TOKEN|$token|g" $COLLECTION_FILE
 
 echo "Complete!"
