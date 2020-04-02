@@ -8,9 +8,6 @@ image_resource:
 inputs:
 - name: newman-repo
 
-outputs:
-- name: workspace
-
 run:
   path: sh
   args: [ "newman-repo/newman/run-bash.sh" ]
