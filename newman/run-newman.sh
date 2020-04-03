@@ -5,6 +5,10 @@ echo "  Collection URL:  " $COLLECTION_FILE
 echo "  Environment URL: " $ENVIRONMENT_FILE
 echo "  Global URL: " $GLOBAL_FILE
 
+apt-get update -y
+apt-get install nodejs -y
+apt-get install npm -y
+
 echo "Node Version:       " `node -v`
 echo "NPM Version:        " `npm -v`
 echo "Old Newman Version: " `newman --version`
