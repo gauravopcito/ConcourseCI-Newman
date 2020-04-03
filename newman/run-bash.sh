@@ -8,6 +8,8 @@ echo "  Global URL: " $APP_FILE
 apt-get update -y
 apt-get install python-pip -y
 apt-get install jq -y
+apt-get install nodejs -y
+apt-get install npm -y
 pip install requests
 
 server=`jq '.values[1].value' $ENVIRONMENT_FILE`
@@ -23,11 +25,19 @@ response=$(python $APP_FILE)
 token=`echo $response | jq ".token"`
 echo "Token: $token"
 token=`echo $token | sed 's/"//g'`
-#basic_login_curl=$(curl -w "200" -s -X POST -d '{"username":"gauravdabhade24@gmail.com","password":"password"}' $host_url)
-#echo "login response: $basic_login_curl"
-#auth_token=echo $basic_login_curl | jq '.auth_token'
-#echo "auth_token: $auth_token"
 sed -i "s|TOKEN|$token|g" $GLOBAL_FILE
 sed -i "s|TOKEN|$token|g" $COLLECTION_FILE
+
+echo "Node Version:       " `node -v`
+echo "NPM Version:        " `npm -v`
+echo "Old Newman Version: " `newman --version`
+
+echo "  Install newest newman version."
+npm install newman --global --no-spin
+
+echo "New Newman Version: " `newman --version`
+
+# using the v3 syntax.
+newman run $COLLECTION_FILE -e $ENVIRONMENT_FILE --bail
 
 echo "Complete!"

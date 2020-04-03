@@ -15,6 +15,6 @@ jobs:
   - task: bash-task
     file: newman-repo/newman/bash-task.yml
     params: { "APP_FILE": "newman-repo/newman/app.py", "ENVIRONMENT_FILE": "newman-repo/newman/test-environment.json", "GLOBAL_FILE": "newman-repo/newman/test-globals.json", "COLLECTION_FILE": "newman-repo/newman/test-collection.json" }
-  - task: test-api
-    file: newman-repo/newman/newman-task.yml
-    params: { "ENVIRONMENT_FILE": "newman-repo/newman/test-environment.json", "GLOBAL_FILE": "newman-repo/newman/test-globals.json", "COLLECTION_FILE": "newman-repo/newman/test-collection.json" }
+#  - task: test-api
+#    file: newman-repo/newman/newman-task.yml
+#    params: { "ENVIRONMENT_FILE": "newman-repo/newman/test-environment.json", "GLOBAL_FILE": "newman-repo/newman/test-globals.json", "COLLECTION_FILE": "newman-repo/newman/test-collection.json" }
